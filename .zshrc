@@ -1,22 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH=/home/ceres/.oh-my-zsh
-
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="bira"
-
-alias nv="nvim"
-alias fd="fdfind"
-
-# Key bindings
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-bindkey "^A" beginning-of-line
-bindkey "^E" end-of-line
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -73,6 +61,21 @@ plugins=(
   copydir
 )
 
+# Path to your oh-my-zsh installation.
+export ZSH=/home/ceres/.oh-my-zsh
+
+alias nv="nvim"
+alias fd="fdfind"
+
+# Key bindings
+bindkey -v
+
+# Load pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -112,3 +115,7 @@ export JAVA_HOME=/opt/jdk-13.0.1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
